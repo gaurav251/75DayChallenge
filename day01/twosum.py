@@ -1,15 +1,16 @@
 def twoSum(nums, target):
-    size = len(nums)
 
-    for i in range(size):
+    # This one uses hash_map or dictionary
+
+    n = len(nums)
+    hash_map = {}
+    for i in range(n):
         first = nums[i]
         second = target - first
-
-        if second in nums[i + 1 :]:
-            j = nums[i + 1 :].index(second)
-            break
-
-    return [i, i + j + 1]
+        if second in hash_map:
+            return [i, hash_map[second]]  # if found in the map then return the location
+        else:
+            hash_map[nums[i]] = i  # if not present in the map then add to it
 
 
 print(twoSum(nums=[2, 7, 11, 15], target=9))
