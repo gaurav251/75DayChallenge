@@ -1,12 +1,8 @@
 class Solution:
     def plusOne(self, digits: List[int]) -> List[int]:
-
-        carry = 1
-        for i in range(len(digits) - 1, -1, -1):
-            if digits[i] == 9 and carry == 1:
-                digits[i], carry = 0, 1
-            else:
-                digits[i], carry = digits[i] + carry, 0
-        if carry:
-            digits.insert(0, 1)
-        return digits
+        string_digits = ""
+        for value in digits:
+            string_digits += str(value)
+        int_digits = int(string_digits) + 1
+        string_digits = str(int_digits)
+        return [int(i) for i in string_digits]
