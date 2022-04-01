@@ -1,11 +1,12 @@
 class Solution:
     def plusOne(self, digits: List[int]) -> List[int]:
-        s=''
-        for i in digits:
-            
-            s+=str(i)
-            
-        s = int(s)+1
-        s = str(s)
-        
-        return [int(i) for i in s]
+    
+        carry = 1
+        for i in range(len(digits) - 1, -1, -1):
+            if digits[i] == 9 and carry == 1:
+                digits[i], carry = 0, 1
+            else:
+                digits[i], carry = digits[i] + carry, 0
+        if carry:
+            digits.insert(0, 1)
+        return digits
