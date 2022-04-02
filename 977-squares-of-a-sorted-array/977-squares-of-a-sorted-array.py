@@ -5,11 +5,11 @@ class Solution:
         i, j = 0, len(nums) - 1
         resultant = []
         while i <= j:
-            if squares[i] >= squares[j]:
-                resultant.insert(0, squares[i])
+            a, b = squares[i], squares[j]
+            resultant.insert(0, max(a, b))
+            if a > b:
                 i += 1
             else:
-                resultant.insert(0, squares[j])
                 j -= 1
 
         return resultant
