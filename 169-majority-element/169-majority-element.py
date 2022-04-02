@@ -1,5 +1,10 @@
 class Solution:
     def majorityElement(self, nums: List[int]) -> int:
+        """
+        -----------------------------
+        Boyer-Moore Voting Algorithm
+        -----------------------------
+        """
         candidate, count = nums[0], 0
         for val in nums:
             if val == candidate:
